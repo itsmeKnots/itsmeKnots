@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Time Intervals</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      text-align: center;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+<div style="background-color: blue; text-align: center;">
+  <h2 style="color: whitesmoke">CLASS SCHEDULE</h2>
+</div>
+<hr>
+
+<table id="scheduleTable">
+  <tr>
+    <th>TIME</th>
+    <th>MONDAY</th>
+    <th>TUESDAY</th>
+    <th>WEDNESDAY</th>
+    <th>THURSDAY</th>
+    <th>FRIDAY</th>
+  </tr>
+  
+  <tr>
+    <td>7:30 AM - 8:00 AM</td>
+    <td rowspan="6" style="background-color: #f29950;">PCIT 10(CSS LAB 4)</td>
+    <td rowspan="5">No Class</td>
+    <td rowspan="6" style="background-color: #619eff;">PCIT 08(LAB 3)</td>
+    <td rowspan="2">No Class</td>
+    <td rowspan="2">No Class</td>
+  </tr>
+  
+  <tr>
+    <td>8:00 AM - 8:30 AM</td>
+  </tr>
+  
+  <tr>
+    <td>8:30 AM - 9:00 AM</td>
+    <td rowspan="3" style="background-color: #e89084;">CCIT 05(CS 2)</td>
+    <td rowspan="3" style="background-color: #e89084;">CCIT 05(CS 2)</td>
+  </tr>
+  
+  <tr>
+    <td>9:00 AM - 9:30 AM</td>
+  </tr>
+  
+  <tr>
+    <td>9:30 AM - 10:00 AM</td>
+  </tr>
+  
+  <tr>
+    <td>10:00 AM - 10:30 AM</td>
+    
+    <td rowspan="4" style="background-color: #f2da50;">PFIT 02(ROOM 304)</td>
+    <td rowspan="4" style="background-color: #d2fc77;">PCIT O7(ROOM 305)</td>
+    <td rowspan="20">No Class</td>
+  </tr>
+  
+  <!-- Add remaining rows for the time intervals -->
+  <tr>
+    <td>10:30 AM - 11:00 AM</td>
+    <td rowspan="9">No Class</td>
+    <td rowspan="5">No Class</td>
+  </tr>
+  
+  <tr>
+    <td>11:00 AM - 11:30 AM</td>
+  </tr>
+  
+  <tr>
+    <td>11:30 AM - 12:00 PM</td>
+  </tr>
+  
+  <tr>
+    <td>12:00 PM - 12:30 PM</td>
+    <td rowspan="3">No Class</td>
+    <td rowspan="3">No Class</td>
+  </tr>
+  
+  <tr>
+    <td>12:30 PM - 1:00 PM</td>
+  </tr>
+  
+  <tr>
+    <td>1:00 PM - 1:30 PM</td>
+    <td rowspan="4" style="background-color: #f29950;">PCIT 10(ROOM 303)</td>
+  </tr>
+  
+  <tr>
+    <td>1:30 PM - 2:00 PM</td>
+    <td rowspan="6" style="background-color: #d2fc77;">PCIT 07(LAB 4)</td>
+    <td rowspan="6" style="background-color: #f2da50;">PFIT 02(LAB 1)</td>
+  </tr>
+  
+  <tr>
+    <td>2:00 PM - 2:30 PM</td>
+  </tr>
+  
+  <tr>
+    <td>2:30 PM - 3:00 PM</td>
+  </tr>
+  
+  <tr>
+    <td>3:00 PM - 3:30 PM</td>
+    <td rowspan="4" style="background-color: #619eff;">PCIT 08(ROOM 302)</td>
+    <td rowspan="4" style="background-color: #e270ff;">PE 4</td>
+  </tr>
+  
+  <tr>
+    <td>3:30 PM - 4:00 PM</td>
+  </tr>
+  
+  <tr>
+    <td>4:00 PM - 4:30 PM</td>
+  </tr>
+  
+  <tr>
+    <td>4:30 PM - 5:00 PM</td>
+    <td>No Class</td>
+    <td>No Class</td>
+  </tr>
+  
+  <tr>
+    <td>5:00 PM - 5:30 PM</td>
+    <td rowspan="7">No Class</td>
+    <td rowspan="4" style="background-color: #55f2d0;">PCIT O6(CS 1)</td>
+    <td rowspan="6">No Class</td>
+    <td rowspan="5" style="background-color: #55f2d0;">PCIT 06(LAB 1)</td>
+  </tr>
+  
+  <tr>
+    <td>5:30 PM - 6:00 PM</td>
+  </tr>
+  
+  <tr>
+    <td>6:00 PM - 6:30 PM</td>
+  </tr>
+  
+  <tr>
+    <td>6:30 PM - 7:00 PM</td>
+  </tr>
+  
+  <tr>
+    <td>7:00 PM - 7:30 PM</td>
+    <td row rowspan="2">No Class</td>
+  </tr>
+  
+  <tr>
+    <td>7:30 PM - 8:00 PM</td>
+    <td>No Class</td>
+  </tr>
+  
+</table>
+
+<br><hr><br>
+
+<div id="scheduleInfo" style="text-align: center">
+  <h3 id="currentSubject">CURRENT SCHEDULE: PCIT08(LAB 3)</h3>
+</div>
+
+<div id="clock" style="text-align: center; font-size: 24px;"></div>
+
+<script>
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+  
+    // Add leading zeros to single-digit numbers
+    hours = ("0" + hours).slice(-2);
+    minutes = ("0" + minutes).slice(-2);
+    seconds = ("0" + seconds).slice(-2);
+  
+    var timeString = hours + ":" + minutes + ":" + seconds;
+    document.getElementById('clock').textContent = timeString;
+  
+    // Get current subject
+    var currentSubject = getCurrentSubject(now.getDay(), hours, minutes);
+    document.getElementById('currentSubject').textContent = "CURRENT SCHEDULE: " + currentSubject;
+  }
+  
+  // Update the clock every second
+  setInterval(updateClock, 1000);
+  
+  // Function to get the current subject based on the current day and time
+  function getCurrentSubject(day, hours, minutes) {
+    var currentTimeInt = parseInt(hours.toString().padStart(2, '0') + minutes.toString().padStart(2, '0'));
+    var schedule = [
+      { day: 1, time: ["7:30", "10:30"], subject: "PCIT 10" },
+      { day: 1, time: ["10:30", "15:00"], subject: "No class" },
+      { day: 1, time: ["15:00", "17:00"], subject: "PCIT 08" },
+      { day: 1, time: ["17:30", "20:00"], subject: "No Class" },
+      { day: 2, time: ["7:00", "10:00"], subject: "No Class" },
+      { day: 2, time: ["10:00", "12:00"], subject: "PFIT 02" },
+      { day: 2, time: ["12:00", "13:30"], subject: "No class" },
+      { day: 2, time: ["13:30", "16:30"], subject: "PCIT 07" },
+      { day: 2, time: ["17:00", "19:00"], subject: "PCIT 06" },
+      { day: 2, time: ["19:00", "20:00"], subject: "No class" },
+      { day: 3, time: ["7:30", "10:30"], subject: "PCIT 08" },
+      { day: 3, time: ["10:30", "13:00"], subject: "No Class" },
+      { day: 3, time: ["13:00", "15:00"], subject: "PCIT 10" },
+      { day: 3, time: ["15:00", "17:00"], subject: "PE 4" },
+      { day: 3, time: ["17:00", "20:00"], subject: "No Class" },
+      { day: 4, time: ["7:30", "8:30"], subject: "No Class" },
+      { day: 4, time: ["8:30", "10:00"], subject: "CCIT 05" },
+      { day: 4, time: ["10:00", "12:00"], subject: "PCIT 07" },
+      { day: 4, time: ["12:00", "13:30"], subject: "No Class" },
+      { day: 4, time: ["13:30", "16:30"], subject: "PFIT 02" },
+      { day: 4, time: ["15:00", "19:30"], subject: "PCIT 06" },
+      { day: 5, time: ["8:30", "10:00"], subject: "CCIT 05" },
+      { day: 5, time: ["10:00", "20:00"], subject: "No Class" }
+        ];
+  
+    for (var i = 0; i < schedule.length; i++) {
+      var startTime = parseInt(schedule[i].time[0].replace(":", ""));
+      var endTime = parseInt(schedule[i].time[1].replace(":", ""));
+  
+      if (day === schedule[i].day && currentTimeInt >= startTime && currentTimeInt < endTime) {
+        return schedule[i].subject;
+      }
+    }
+  
+    return "No subject";
+  }
+</script>
+</body>
+</html>
